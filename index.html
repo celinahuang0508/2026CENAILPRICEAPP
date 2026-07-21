@@ -68,10 +68,21 @@
         }
 
         .count-display {
-            min-width: 32px;
+            width: 44px;
             text-align: center;
             font-weight: 600;
             font-size: 1rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            color: var(--text-main);
+            padding: 2px 0;
+        }
+
+        .count-display:focus {
+            border-color: var(--primary);
+            outline: none;
+            background: #FFF;
         }
 
         label, .option-label, span {
@@ -163,12 +174,15 @@
             <h1 class="brand-font text-5xl text-[#8E7F6D] mb-1">CE Nail</h1>
             <p class="text-[10px] tracking-[0.3em] text-[#A89A8A] mb-4 uppercase">Professional Nail Studio</p>
             
-            <div class="flex justify-center gap-2">
+            <div class="flex justify-center gap-2 flex-wrap">
                 <input type="radio" name="artist" id="artist-yu" value="小魚" class="option-radio hidden" checked onchange="calculate()">
                 <label for="artist-yu" class="px-4 py-1.5 border border-[#E9E2D7] rounded-full cursor-pointer bg-white">美甲師：小魚</label>
                 
                 <input type="radio" name="artist" id="artist-ru" value="小如" class="option-radio hidden" onchange="calculate()">
                 <label for="artist-ru" class="px-4 py-1.5 border border-[#E9E2D7] rounded-full cursor-pointer bg-white">美甲師：小如</label>
+
+                <input type="radio" name="artist" id="artist-yan" value="淹淹" class="option-radio hidden" onchange="calculate()">
+                <label for="artist-yan" class="px-4 py-1.5 border border-[#E9E2D7] rounded-full cursor-pointer bg-white">美甲師：淹淹</label>
             </div>
         </header>
 
@@ -178,19 +192,19 @@
                 <h2 class="section-title">基礎底色 (每指)</h2>
                 <div class="space-y-3">
                     <div class="flex justify-between items-center"><label>單色 ($80)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-single', -1)">-</button><span class="count-display" id="base-single-val" data-price="80" data-label="基礎單色" data-unit="指">0</span><button class="stepper-btn" onclick="step('base-single', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-single', -1)">-</button><input type="number" class="count-display" id="base-single-val" data-price="80" data-label="基礎單色" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('base-single', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center"><label>貓眼 ($90)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-cat', -1)">-</button><span class="count-display" id="base-cat-val" data-price="90" data-label="貓眼" data-unit="指">0</span><button class="stepper-btn" onclick="step('base-cat', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-cat', -1)">-</button><input type="number" class="count-display" id="base-cat-val" data-price="90" data-label="貓眼" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('base-cat', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>漸變 ($120)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-grad', -1)">-</button><span class="count-display" id="base-grad-val" data-price="120" data-label="漸變" data-unit="指">0</span><button class="stepper-btn" onclick="step('base-grad', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>漸變 ($130)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-grad', -1)">-</button><input type="number" class="count-display" id="base-grad-val" data-price="130" data-label="漸變" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('base-grad', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>鏡面 ($130)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-mirror', -1)">-</button><span class="count-display" id="base-mirror-val" data-price="130" data-label="鏡面" data-unit="指">0</span><button class="stepper-btn" onclick="step('base-mirror', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>鏡面 ($140)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-mirror', -1)">-</button><input type="number" class="count-display" id="base-mirror-val" data-price="140" data-label="鏡面" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('base-mirror', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>法式 ($160)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-french', -1)">-</button><span class="count-display" id="base-french-val" data-price="160" data-label="法式" data-unit="指">0</span><button class="stepper-btn" onclick="step('base-french', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>法式 ($150)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('base-french', -1)">-</button><input type="number" class="count-display" id="base-french-val" data-price="150" data-label="法式" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('base-french', 1)">+</button></div>
                     </div>
                 </div>
             </div>
@@ -200,19 +214,19 @@
                 <h2 class="section-title">疊加項目 (每指)</h2>
                 <div class="space-y-3">
                     <div class="flex justify-between items-center"><label>遮游離線 ($5)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-line', -1)">-</button><span class="count-display" id="add-line-val" data-price="5" data-label="疊加-遮游離線" data-unit="指">0</span><button class="stepper-btn" onclick="step('add-line', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-line', -1)">-</button><input type="number" class="count-display" id="add-line-val" data-price="5" data-label="疊加-遮游離線" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('add-line', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center"><label>實色/跳色 ($10)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-color', -1)">-</button><span class="count-display" id="add-color-val" data-price="10" data-label="疊加-實色/跳色" data-unit="指">0</span><button class="stepper-btn" onclick="step('add-color', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-color', -1)">-</button><input type="number" class="count-display" id="add-color-val" data-price="10" data-label="疊加-實色/跳色" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('add-color', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>疊加漸變 ($40)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-grad', -1)">-</button><span class="count-display" id="add-grad-val" data-price="40" data-label="疊加-漸變" data-unit="指">0</span><button class="stepper-btn" onclick="step('add-grad', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>疊加漸變 ($50)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-grad', -1)">-</button><input type="number" class="count-display" id="add-grad-val" data-price="50" data-label="疊加-漸變" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('add-grad', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>疊加鏡面 ($50)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-mirror', -1)">-</button><span class="count-display" id="add-mirror-val" data-price="50" data-label="疊加-鏡面" data-unit="指">0</span><button class="stepper-btn" onclick="step('add-mirror', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>疊加鏡面 ($60)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-mirror', -1)">-</button><input type="number" class="count-display" id="add-mirror-val" data-price="60" data-label="疊加-鏡面" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('add-mirror', 1)">+</button></div>
                     </div>
-                    <div class="flex justify-between items-center"><label>疊加法式 ($80)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-french', -1)">-</button><span class="count-display" id="add-french-val" data-price="80" data-label="疊加-法式" data-unit="指">0</span><button class="stepper-btn" onclick="step('add-french', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>疊加法式 ($70)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('add-french', -1)">-</button><input type="number" class="count-display" id="add-french-val" data-price="70" data-label="疊加-法式" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('add-french', 1)">+</button></div>
                     </div>
                 </div>
             </div>
@@ -221,37 +235,60 @@
             <div class="glass-card">
                 <h2 class="section-title">造型設計</h2>
                 <div class="space-y-4">
+                    <!-- 手繪/造型 -->
                     <div class="flex flex-col gap-2">
                         <label>手繪/造型</label>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center gap-2">
-                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="custom-style-price" placeholder="價格" onchange="calculate()">
+                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="custom-style-price-1" placeholder="價格" onchange="calculate()" oninput="calculate()">
                             </div>
                             <div class="flex items-center gap-3">
-                                <button class="stepper-btn" onclick="step('style-draw', -1)">-</button>
-                                <span class="count-display" id="style-draw-val">0</span>
-                                <button class="stepper-btn" onclick="step('style-draw', 1)">+</button>
+                                <button class="stepper-btn" onclick="step('style-draw-1', -1)">-</button>
+                                <input type="number" class="count-display" id="style-draw-1-val" value="0" min="0" oninput="calculate()" onchange="calculate()">
+                                <button class="stepper-btn" onclick="step('style-draw-1', 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="custom-style-price-2" placeholder="價格" onchange="calculate()" oninput="calculate()">
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button class="stepper-btn" onclick="step('style-draw-2', -1)">-</button>
+                                <input type="number" class="count-display" id="style-draw-2-val" value="0" min="0" oninput="calculate()" onchange="calculate()">
+                                <button class="stepper-btn" onclick="step('style-draw-2', 1)">+</button>
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-col gap-2">
+                    <!-- 排鑽/鑽球 -->
+                    <div class="flex flex-col gap-2 border-t pt-2">
                         <label>排鑽/鑽球</label>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center gap-2">
-                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="diamond-style-price" placeholder="價格" onchange="calculate()">
+                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="diamond-style-price-1" placeholder="價格" onchange="calculate()" oninput="calculate()">
                             </div>
                             <div class="flex items-center gap-3">
-                                <button class="stepper-btn" onclick="step('style-diamond', -1)">-</button>
-                                <span class="count-display" id="style-diamond-val">0</span>
-                                <button class="stepper-btn" onclick="step('style-diamond', 1)">+</button>
+                                <button class="stepper-btn" onclick="step('style-diamond-1', -1)">-</button>
+                                <input type="number" class="count-display" id="style-diamond-1-val" value="0" min="0" oninput="calculate()" onchange="calculate()">
+                                <button class="stepper-btn" onclick="step('style-diamond-1', 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs">單價$</span><input type="number" class="w-20" id="diamond-style-price-2" placeholder="價格" onchange="calculate()" oninput="calculate()">
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button class="stepper-btn" onclick="step('style-diamond-2', -1)">-</button>
+                                <input type="number" class="count-display" id="style-diamond-2-val" value="0" min="0" oninput="calculate()" onchange="calculate()">
+                                <button class="stepper-btn" onclick="step('style-diamond-2', 1)">+</button>
                             </div>
                         </div>
                     </div>
+                    <!-- 大鑽/飾品 -->
                     <div class="flex justify-between items-center border-t pt-4">
                         <label>大鑽/飾品 ($50/指)</label>
                         <div class="flex items-center gap-3">
                             <button class="stepper-btn" onclick="step('style-acc', -1)">-</button>
-                            <span class="count-display" id="style-acc-val" data-price="50" data-label="大鑽/飾品" data-unit="指">0</span>
+                            <input type="number" class="count-display" id="style-acc-val" data-price="50" data-label="大鑽/飾品" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()">
                             <button class="stepper-btn" onclick="step('style-acc', 1)">+</button>
                         </div>
                     </div>
@@ -262,20 +299,25 @@
             <div class="glass-card">
                 <h2 class="section-title">甲片延長 / 補甲</h2>
                 <div class="space-y-3">
-                    <div class="flex justify-between items-center"><label>短甲 ($90)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-short', -1)">-</button><span class="count-display ext-count" id="ext-short-val" data-price="90" data-label="延長-短甲" data-unit="指">0</span><button class="stepper-btn" onclick="step('ext-short', 1)">+</button></div>
+                    <div class="flex justify-between items-center"><label>短甲 ($100)</label>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-short', -1)">-</button><input type="number" class="count-display ext-count" id="ext-short-val" data-price="100" data-label="延長-短甲" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('ext-short', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center"><label>中長甲 ($120)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-mid', -1)">-</button><span class="count-display ext-count" id="ext-mid-val" data-price="120" data-label="延長-中長甲" data-unit="指">0</span><button class="stepper-btn" onclick="step('ext-mid', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-mid', -1)">-</button><input type="number" class="count-display ext-count" id="ext-mid-val" data-price="120" data-label="延長-中長甲" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('ext-mid', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center"><label>超長甲 ($150)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-long', -1)">-</button><span class="count-display ext-count" id="ext-long-val" data-price="150" data-label="延長-超長甲" data-unit="指">0</span><button class="stepper-btn" onclick="step('ext-long', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-long', -1)">-</button><input type="number" class="count-display ext-count" id="ext-long-val" data-price="150" data-label="延長-超長甲" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('ext-long', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center"><label>歐美水管 ($180)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-pipe', -1)">-</button><span class="count-display ext-count" id="ext-pipe-val" data-price="180" data-label="延長-歐美水管" data-unit="指">0</span><button class="stepper-btn" onclick="step('ext-pipe', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('ext-pipe', -1)">-</button><input type="number" class="count-display ext-count" id="ext-pipe-val" data-price="180" data-label="延長-歐美水管" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('ext-pipe', 1)">+</button></div>
                     </div>
                     <div class="flex justify-between items-center border-t pt-3"><label>裂甲補甲 ($50/指)</label>
-                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('fix-crack', -1)">-</button><span class="count-display" id="fix-crack-val" data-price="50" data-label="裂甲補甲" data-unit="指">0</span><button class="stepper-btn" onclick="step('fix-crack', 1)">+</button></div>
+                        <div class="flex items-center gap-3"><button class="stepper-btn" onclick="step('fix-crack', -1)">-</button><input type="number" class="count-display" id="fix-crack-val" data-price="50" data-label="裂甲補甲" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('fix-crack', 1)">+</button></div>
+                    </div>
+                    <div class="flex justify-between items-center border-t pt-3">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="ext-full-discount" class="w-5 h-5 accent-[#D4C3AC]" onchange="calculate()"> 十指全延 (-$100)
+                        </label>
                     </div>
                 </div>
             </div>
@@ -304,7 +346,7 @@
                         <label>鑽飾卸除 ($20/指)</label>
                         <div class="flex items-center gap-3">
                             <button class="stepper-btn" onclick="step('rem-diamond', -1)">-</button>
-                            <span class="count-display" id="rem-diamond-val" data-price="20" data-label="鑽飾卸除" data-unit="指">0</span><button class="stepper-btn" onclick="step('rem-diamond', 1)">+</button>
+                            <input type="number" class="count-display" id="rem-diamond-val" data-price="20" data-label="鑽飾卸除" data-unit="指" value="0" min="0" oninput="calculate()" onchange="calculate()"><button class="stepper-btn" onclick="step('rem-diamond', 1)">+</button>
                         </div>
                     </div>
                 </div>
@@ -390,10 +432,11 @@
         }
 
         function step(id, val) {
-            const display = document.getElementById(id + '-val');
-            let current = parseInt(display.innerText);
+            const input = document.getElementById(id + '-val');
+            if (!input) return;
+            let current = parseInt(input.value || 0);
             current = Math.max(0, current + val);
-            display.innerText = current;
+            input.value = current;
             calculate();
         }
 
@@ -401,13 +444,14 @@
             let total = 0;
             let detail = [];
             
-            const artist = document.querySelector('input[name="artist"]:checked').value;
+            const artistRadio = document.querySelector('input[name="artist"]:checked');
+            const artist = artistRadio ? artistRadio.value : '小魚';
             detail.push(`👩‍🎨 美甲師：${artist}`);
 
             // 基礎與疊加項目
             document.querySelectorAll('.count-display[data-price]').forEach(display => {
                 const price = parseInt(display.getAttribute('data-price'));
-                const count = parseInt(display.innerText);
+                const count = parseInt(display.value || 0);
                 if (count > 0) {
                     const sub = price * count;
                     total += sub;
@@ -416,25 +460,31 @@
             });
 
             // 造型
-            const sPrice = parseInt(document.getElementById('custom-style-price').value || 0);
-            const sCount = parseInt(document.getElementById('style-draw-val').innerText);
-            if (sCount > 0 && sPrice > 0) {
-                const sub = sPrice * sCount;
-                total += sub;
-                detail.push(`造型/手繪 x${sCount}：$${sub}`);
-            }
+            const styles = [
+                { priceId: 'custom-style-price-1', countId: 'style-draw-1-val', label: '手繪/造型' },
+                { priceId: 'custom-style-price-2', countId: 'style-draw-2-val', label: '手繪/造型' },
+                { priceId: 'diamond-style-price-1', countId: 'style-diamond-1-val', label: '排鑽/鑽球' },
+                { priceId: 'diamond-style-price-2', countId: 'style-diamond-2-val', label: '排鑽/鑽球' }
+            ];
 
-            const dPrice = parseInt(document.getElementById('diamond-style-price').value || 0);
-            const dCount = parseInt(document.getElementById('style-diamond-val').innerText);
-            if (dCount > 0 && dPrice > 0) {
-                const sub = dPrice * dCount;
-                total += sub;
-                detail.push(`排鑽/鑽球 x${dCount}：$${sub}`);
-            }
+            styles.forEach(item => {
+                const pInput = document.getElementById(item.priceId);
+                const cInput = document.getElementById(item.countId);
+                if (pInput && cInput) {
+                    const p = parseInt(pInput.value || 0);
+                    const c = parseInt(cInput.value || 0);
+                    if (c > 0 && p > 0) {
+                        const sub = p * c;
+                        total += sub;
+                        detail.push(`${item.label} x${c}：$${sub}`);
+                    }
+                }
+            });
 
-            // 十指全延優惠
-            const totalExt = Array.from(document.querySelectorAll('.ext-count')).reduce((a, b) => a + parseInt(b.innerText), 0);
-            if (totalExt >= 10) {
+            // 十指全延優惠 (自動偵測與手動勾選皆可)
+            const totalExt = Array.from(document.querySelectorAll('.ext-count')).reduce((a, b) => a + parseInt(b.value || 0), 0);
+            const manualFullExt = document.getElementById('ext-full-discount')?.checked;
+            if (manualFullExt || totalExt >= 10) {
                 total -= 100;
                 detail.push(`✨ 十指全延優惠：-$100`);
             }
@@ -451,7 +501,6 @@
                 total += rPrice;
                 detail.push(`${rText}：$${rPrice}`);
             } else if (document.getElementById('thick-base').checked) {
-                // 如果沒選卸甲但選了厚建構
                 total += 50;
                 detail.push(`建構過厚：$50`);
             }
@@ -469,7 +518,8 @@
             }
 
             // 支付方式
-            const payMethod = document.querySelector('input[name="pay-method"]:checked').value;
+            const payMethodRadio = document.querySelector('input[name="pay-method"]:checked');
+            const payMethod = payMethodRadio ? payMethodRadio.value : '現金';
 
             document.getElementById('total-price').innerText = `$ ${total}`;
             document.getElementById('summary-preview').innerHTML = detail.length > 1 ? detail.join(' | ') : "尚未選擇項目";
